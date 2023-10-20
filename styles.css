@@ -1,0 +1,136 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a white background color to the entire page */
+body {
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the header with a blue background for navigation and a white header background */
+header {
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3498db; /* Blue color for the logo */
+    margin-left: 20px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+}
+
+header li {
+    margin: 0 20px;
+}
+
+header a {
+    text-decoration: none;
+    color: #333; /* Dark text color for navigation links */
+}
+
+/* Style the hero section with a blue accent for the CTA button */
+.hero {
+    background: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333; /* Dark text color for the heading */
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #666; /* Slightly darker text color for the paragraph */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #3498db; /* Blue color for the CTA button */
+    color: #fff; /* White text color for the button */
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #1f6693; /* Slightly darker blue on hover */
+}
+
+/* Style the features section with subtle blue accents */
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 60px 0;
+}
+
+.feature {
+    text-align: center;
+    max-width: 300px;
+}
+
+.feature i {
+    font-size: 36px;
+    color: #3498db; /* Blue color for the feature icons */
+    margin-bottom: 20px;
+}
+
+.feature h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333; /* Dark text color for feature headings */
+}
+
+.feature p {
+    font-size: 16px;
+    color: #666; /* Slightly darker text color for feature descriptions */
+}
+
+/* Style the CTA section at the end of the page with a blue accent for the CTA button */
+.cta {
+    text-align: center;
+    padding: 100px 0;
+}
+
+.cta h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333; /* Dark text color for the CTA heading */
+}
+
+.cta p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #666; /* Slightly darker text color for the CTA paragraph */
+}
+
+/* Style the footer with a blue background for contrast and white text */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #3498db; /* Blue color for the footer background */
+    color: #fff; /* White text color for the footer */
+    font-size: 16px;
+}
