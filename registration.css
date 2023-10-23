@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('assets/car.jpg'); /* Replace with your image file path */
+    background-size: cover; /* Adjust this property as needed */
+    background-position: center center; /* Adjust this property as needed */
+}
+
+
+header {
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+header {
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3498db; /* Blue color for the logo */
+    margin-left: 20px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+}
+
+header li {
+    margin: 0 20px;
+}
+
+header a {
+    text-decoration: none;
+    color: #333; /* Dark text color for navigation links */
+}
+
+.container {
+    width: 400px;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #333;
+}
+
+.car-vector {
+    max-width: 60%; /* Set the maximum width to the container's width */
+    max-height: auto; /* Maintain the original aspect ratio */
+    display: block; /* Remove any extra spacing around the image */
+    margin: 0 auto; /* Center the image horizontally */
+    
+}

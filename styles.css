@@ -1,8 +1,5 @@
 /* Reset default margin and padding for all elements */
-* {
-    margin: 0;
-    padding: 0;
-}
+
 
 /* Apply a white background color to the entire page */
 body {
@@ -11,6 +8,12 @@ body {
 }
 
 /* Style the header with a blue background for navigation and a white header background */
+header {
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
 header {
     background-color: #fff;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
@@ -49,7 +52,7 @@ header a {
 .hero {
     background: #fff;
     text-align: center;
-    padding: 100px 0;
+    padding: 30px 0;
 }
 
 .hero h1 {
@@ -133,4 +136,12 @@ footer {
     background-color: #3498db; /* Blue color for the footer background */
     color: #fff; /* White text color for the footer */
     font-size: 16px;
+}
+
+.car-vector {
+    max-width: 50%; /* Set the maximum width to the container's width */
+    max-height: auto; /* Maintain the original aspect ratio */
+    display: block; /* Remove any extra spacing around the image */
+    margin: 0 auto; /* Center the image horizontally */
+    
 }
