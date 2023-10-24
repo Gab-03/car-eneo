@@ -126,13 +126,25 @@ padding: 5px 20px 5px 20px ;
     padding: 100px 0;
 }
 
+
+.cta1 {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.cta1 h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333; /* Dark text color for the CTA heading */
+}
+
 .cta h2 {
     font-size: 36px;
     margin-bottom: 20px;
     color: #333; /* Dark text color for the CTA heading */
 }
 
-.cta p {
+.cta p, .cta1 p{
     font-size: 18px;
     margin-bottom: 40px;
     color: #666; /* Slightly darker text color for the CTA paragraph */
@@ -141,7 +153,7 @@ padding: 5px 20px 5px 20px ;
 /* Style the footer with a blue background for contrast and white text */
 footer {
     text-align: center;
-    padding: 20px 0;
+    padding: 20px;
     background-color: #3498db; /* Blue color for the footer background */
     color: #fff; /* White text color for the footer */
     font-size: 16px;
