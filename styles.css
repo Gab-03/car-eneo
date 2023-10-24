@@ -124,12 +124,13 @@ padding: 5px 20px 5px 20px ;
 .cta {
     text-align: center;
     padding: 100px 0;
+    background-color: rgb(240, 240, 240);
 }
 
 
 .cta1 {
     text-align: center;
-    padding: 10px 0;
+    margin-bottom: 3.5rem;
 }
 
 .cta1 h2 {
@@ -166,3 +167,13 @@ footer {
     margin: 0 auto; /* Center the image horizontally */
 }
 
+.cta-button-bottom{
+    display: inline-block;
+    padding: 15px 30px;
+    background-color:rgb(21, 49, 59); /* Blue color for the CTA button */
+    color: #fff; /* White text color for the button */
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
