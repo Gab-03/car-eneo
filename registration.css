@@ -18,7 +18,7 @@ header {
     padding: 10px 0;
 }
 
-header .logo {
+header .logo a{
     font-size: 24px;
     font-weight: bold;
     color: #3498db; /* Blue color for the logo */
@@ -110,4 +110,8 @@ a:hover {
     display: block; /* Remove any extra spacing around the image */
     margin: 0 auto; /* Center the image horizontally */
     
+}
+
+.car-eneo-text {
+    color: #3498DA;
 }
