@@ -11,17 +11,18 @@ header {
     background-color: #fff;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     padding: 10px 0;
+    font-size: 20px;
 }
 
 header .logo a {
-    font-size: 24px;
+    font-size: 34px;
     font-weight: bold;
-    color: #3498DA; /* Blue color for the logo */
+    color: #007DFE; /* Blue color for the logo */
     margin-left: 20px;
 }
 
 .car-eneo-text {
-    color: #3498DA;
+    color: #007DFE;
 }
 
 header nav {
@@ -135,7 +136,7 @@ padding: 5px 20px 5px 20px ;
 }
 
 .cta1-p{
-    margin-top: 4.5rem;
+    margin-top: 2.25rem;
     text-align: center;
     font-size: 26px;
     width: 24rem;
@@ -237,7 +238,7 @@ footer {
    }
 
    .card p{
-    color: rgb(143, 143, 145);
+    color: rgb(84, 84, 87);
    }
    .d-flex{
     padding-left: 4rem;
@@ -273,7 +274,7 @@ footer {
     display: flex;
     margin: 0 auto;
     padding: 20px;
-    background-color: rgb(52, 152, 219);
+    background-color: #007DFE;
 }
 
 .pricing-table {
