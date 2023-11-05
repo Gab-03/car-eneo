@@ -5,7 +5,26 @@
     </head>
     <body style='border:0; margin: 0'>
         <div id="logo-book"><a href="index.html">Car-eneo</a></div>
-        <div id='map'></div>    
+        <div id='map'></div> 
+        <button id="modal-button" onclick="openModal()">
+            <img src="assets/schedule.png" alt="open-modal">
+        </button>
+    
+        <div id="schedule-modal" class="modal">
+            <div class="modal-content">
+                <span onclick="closeModal()" class="close">&times;</span>
+                <h2>Schedule Input</h2>
+                <button onclick="addInputFields()">Add Input Fields</button>
+                <form id="schedule-form">
+                    <!-- Input fields will be dynamically created here -->
+                </form>
+                <div id="schedule-list">
+                    <h3>Schedule for the Week:</h3>
+                    <ul id="schedule-items"></ul>
+                    <button onclick="saveSchedule()">Save Schedule</button>
+                </div>
+            </div>
+        </div>   
         <div class="formBlock">
             <form id="form">
                 <input type="text" name="start" class="input" id="start" placeholder="Choose starting point" />
@@ -18,5 +37,35 @@
         <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=S8d7L47mdyAG5nHG09dUnSPJjreUVPeC"></script>
         <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=S8d7L47mdyAG5nHG09dUnSPJjreUVPeC"></script>
         <script src="app.js"></script>
+        <script>
+            let scheduleData = [];
+            function openModal() {
+                document.getElementById("schedule-modal").style.display = "block";
+            }
+
+            function closeModal() {
+                document.getElementById("schedule-modal").style.display = "none";
+            }
+            function addInputFields() {
+                const scheduleForm = document.getElementById("schedule-form");
+                const dayInput = document.createElement("input");
+                dayInput.type = "text";
+                dayInput.placeholder = "Enter a day";
+                const startTimeInput = document.createElement("input");
+                startTimeInput.type = "text";
+                startTimeInput.placeholder = "Enter start time";
+                const endTimeInput = document.createElement("input");
+                endTimeInput.type = "text";
+                endTimeInput.placeholder = "Enter end time";
+                scheduleForm.appendChild(dayInput);
+                scheduleForm.appendChild(startTimeInput);
+                scheduleForm.appendChild(endTimeInput);
+            }
+
+            function saveSchedule() {
+                console.log("Schedule Data:", scheduleData);
+                closeModal();
+            }
+        </script>
     </body>
 </html>
