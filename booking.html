@@ -13,15 +13,12 @@
         <div id="schedule-modal" class="modal">
             <div class="modal-content">
                 <span onclick="closeModal()" class="close">&times;</span>
-                <h2>Schedule Input</h2>
-                <button onclick="addInputFields()">Add Input Fields</button>
-                <form id="schedule-form">
-                    <!-- Input fields will be dynamically created here -->
-                </form>
-                <div id="schedule-list">
-                    <h3>Schedule for the Week:</h3>
-                    <ul id="schedule-items"></ul>
-                    <button onclick="saveSchedule()">Save Schedule</button>
+                <h2 id="schedule-title">Your Schedule</h2>
+                <button onclick="addInputFields()" id="add-schedule" style="margin-bottom: 10px;">Add schedule</button>
+                <div id="schedule-container">
+                </div>
+                <div id="save-schedule">
+                    <button id="add-schedule" onclick="saveSchedule()">Save Schedule</button>
                 </div>
             </div>
         </div>   
@@ -46,20 +43,73 @@
             function closeModal() {
                 document.getElementById("schedule-modal").style.display = "none";
             }
+
             function addInputFields() {
-                const scheduleForm = document.getElementById("schedule-form");
-                const dayInput = document.createElement("input");
-                dayInput.type = "text";
-                dayInput.placeholder = "Enter a day";
-                const startTimeInput = document.createElement("input");
-                startTimeInput.type = "text";
-                startTimeInput.placeholder = "Enter start time";
-                const endTimeInput = document.createElement("input");
-                endTimeInput.type = "text";
-                endTimeInput.placeholder = "Enter end time";
-                scheduleForm.appendChild(dayInput);
-                scheduleForm.appendChild(startTimeInput);
-                scheduleForm.appendChild(endTimeInput);
+                const scheduleContainer = document.getElementById("schedule-container");
+                const scheduleForm = document.createElement("form");
+                scheduleForm.id = "schedule-form";
+                const getScheduleForm = document.getElementById("schedule-form");
+
+                const dayDropdown = document.createElement('select');
+                dayDropdown.name = 'day';
+                dayDropdown.id = 'day-dropdown';
+                dayDropdown.className = "dropdown";
+                const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                for (const day of days) {
+                    const option = document.createElement('option');
+                    option.value = day;
+                    option.textContent = day;
+                    dayDropdown.appendChild(option);
+                }
+
+                const startTimeDropdown = document.createElement('select');
+                startTimeDropdown.name = 'start-time';
+                startTimeDropdown.id = 'start-time-dropdown';
+                startTimeDropdown.className = "dropdown";
+
+                const times = []
+
+                for (let hour = 8; hour <= 21; hour++) {
+                    for (let minute = 0; minute < 60; minute += 30) {
+                        if (minute == 0) {
+                            var time = `${hour}:00`;
+                        } else {
+                            var time = `${hour}:${minute}`;
+                        }
+                        times.push(time)
+                    }
+                }
+
+                for (const time of times) {
+                    const option = document.createElement('option');
+                    option.value = time;
+                    option.textContent = time;
+                    startTimeDropdown.appendChild(option);
+                }
+
+                const endTimeDropdown = document.createElement('select');
+                endTimeDropdown.name = 'end-time';
+                endTimeDropdown.id = 'end-time-dropdown';
+                endTimeDropdown.className = "dropdown";
+
+                for (const time of times) {
+                    const option = document.createElement('option');
+                    option.value = time;
+                    option.textContent = time;
+                    endTimeDropdown.appendChild(option);
+                }
+
+                scheduleForm.appendChild(dayDropdown);
+                scheduleForm.appendChild(startTimeDropdown);
+                scheduleForm.appendChild(endTimeDropdown);
+                scheduleContainer.appendChild(scheduleForm);
+
+                const scheduleFormElements = scheduleForm.querySelectorAll('*');
+
+                for (const element of scheduleFormElements) {
+                    element.style.marginRight = '10px';
+                }
+
             }
 
             function saveSchedule() {
