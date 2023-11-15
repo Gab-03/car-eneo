@@ -6,8 +6,12 @@
     <body style='border:0; margin: 0'>
         <div id="logo-book"><a href="index.html">Car-eneo</a></div>
         <div id='map'></div> 
-        <button id="modal-button" onclick="openModal()">
+        <button id="modal-schedule" class="modal-button" onclick="openModal()">
             <img src="assets/schedule.png" alt="open-modal">
+        </button>
+
+        <button id="modal-booking" class="modal-button" onclick="openModalBook()">
+            <img src="assets/bookings.png" alt="open-modal">
         </button>
     
         <div id="schedule-modal" class="modal">
@@ -21,12 +25,27 @@
                     <button id="add-schedule" onclick="saveSchedule()">Save Schedule</button>
                 </div>
             </div>
+        </div>
+        
+        <div id="riderBookingModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span onclick="closeModalBook()" class="close">&times;</span>
+                <h2 id="schedule-title">Rider Booking</h5>
+                <div class="modal-body">
+                    <p>Name: Jonas Palomo</p>
+                    <p>Phone Number: +63 927 472 6791</p>
+                    <p>Pickup Location: Ateneo de Manila University</p>
+                    <span>Drop-off Location: </span><p style="display: inline;" id="drop-off">Antipolo City</p>
+                </div>
+                <form id="modal-form">
+                    <button type="button" class="button-booking" style="background-color: red;" onclick="closeModalBook()">Reject</button>
+                    <button type="submit" id="accept-book" class="button-booking" onclick="closeModalBook()">Accept</button>
+                </form>
+            </div>
         </div>   
+
         <div class="formBlock">
             <form id="form">
-                <input type="text" name="start" class="input" id="start" placeholder="Choose starting point" />
-                <input type="text" name="end" class="input" id="destination" placeholder="Choose destination" />
-                <button style="display: block;" id="submit-book" type="submit">Book a driver</button>
             </form>
         </div>
 
@@ -42,6 +61,14 @@
 
             function closeModal() {
                 document.getElementById("schedule-modal").style.display = "none";
+            }
+
+            function openModalBook() {
+                document.getElementById("riderBookingModal").style.display = "block";
+            }
+
+            function closeModalBook() {
+                document.getElementById("riderBookingModal").style.display = "none";
             }
 
             function addInputFields() {
@@ -87,21 +114,9 @@
                     startTimeDropdown.appendChild(option);
                 }
 
-                const endTimeDropdown = document.createElement('select');
-                endTimeDropdown.name = 'end-time';
-                endTimeDropdown.id = 'end-time-dropdown';
-                endTimeDropdown.className = "dropdown";
-
-                for (const time of times) {
-                    const option = document.createElement('option');
-                    option.value = time;
-                    option.textContent = time;
-                    endTimeDropdown.appendChild(option);
-                }
 
                 scheduleForm.appendChild(dayDropdown);
                 scheduleForm.appendChild(startTimeDropdown);
-                scheduleForm.appendChild(endTimeDropdown);
                 scheduleContainer.appendChild(scheduleForm);
 
                 const scheduleFormElements = scheduleForm.querySelectorAll('*');
@@ -109,12 +124,17 @@
                 for (const element of scheduleFormElements) {
                     element.style.marginRight = '10px';
                 }
-
             }
 
             function saveSchedule() {
                 console.log("Schedule Data:", scheduleData);
                 closeModal();
+            }
+
+            var modal = document.getElementById('riderBookingModal');
+
+            function showRiderBookingModal() {
+            modal.show();
             }
         </script>
     </body>
