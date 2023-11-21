@@ -348,13 +348,44 @@ footer {
     height: 100vh;
     width: 100%;
     position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+#loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#loading-image {
+    width: 200px;
+    height: 200px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .formBlock {
     background-color: #FFF;
     border: 1px solid #ddd;
     position: absolute;
-    top: 82.5%;
+    top: 87.5%;
     left: 50%;
     transform: translate(-50%,-50%);
     padding: 10px;
@@ -362,6 +393,12 @@ footer {
     box-shadow: 0 1px 5px rgba(0,0,0,0.65);
     border-radius: 5px;
     width: 400px;
+    min-width: 400px;
+    max-width: 450px;
+}
+
+#fare {
+    padding: 0 20px 0;
 }
 
 #modal-schedule {
@@ -453,6 +490,7 @@ footer {
 #form {
     padding: 0;
     margin: 0;
+    display: flex;
 }
 
 #submit-book {
@@ -470,6 +508,24 @@ footer {
 }
 
 #submit-book:hover {
+    background-color: #0056b3;
+}
+
+#confirm-book {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+#confirm-book:hover {
     background-color: #0056b3;
 }
 
@@ -513,10 +569,55 @@ footer {
     float: right;
 }
 
+#start {
+    margin-bottom: 5px;
+}
+
 .stops {
     height: 20px;
 }
 
-/* input:nth-child(1) {
-    margin-bottom: 10px;
-} */
+#driver-box {
+    display: flex;
+    position: absolute;
+    background-color: #FFF;
+    border: 1px solid #ddd;
+    top: 72.5%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 10px;
+    z-index: 99;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+    border-radius: 5px;
+    width: 400px;
+}
+
+#driver-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-left: 15px;
+}
+
+#driver-info p {
+    padding: 0;
+    margin: 0;
+}
+
+#driver-picture {
+    height: auto;
+    width: 75px;
+}
+
+#stars {
+    height: auto;
+    width: 30px;
+    padding-bottom: 5px;
+}
+
+#car-info {
+    font-size: 0.8em;
+    padding-left: 10px;
+    color: gray;
+}

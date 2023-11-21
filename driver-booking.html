@@ -1,0 +1,141 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body style='border:0; margin: 0'>
+        <div id="logo-book"><a href="index.html">Car-eneo</a></div>
+        <div id='map'></div> 
+        <button id="modal-schedule" class="modal-button" onclick="openModal()">
+            <img src="assets/schedule.png" alt="open-modal">
+        </button>
+
+        <button id="modal-booking" class="modal-button" onclick="openModalBook()">
+            <img src="assets/bookings.png" alt="open-modal">
+        </button>
+    
+        <div id="schedule-modal" class="modal">
+            <div class="modal-content">
+                <span onclick="closeModal()" class="close">&times;</span>
+                <h2 id="schedule-title">Your Schedule</h2>
+                <button onclick="addInputFields()" id="add-schedule" style="margin-bottom: 10px;">Add schedule</button>
+                <div id="schedule-container">
+                </div>
+                <div id="save-schedule">
+                    <button id="add-schedule" onclick="saveSchedule()">Save Schedule</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="riderBookingModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span onclick="closeModalBook()" class="close">&times;</span>
+                <h2 id="schedule-title">Rider Booking</h5>
+                <div class="modal-body">
+                    <p>Name: Jonas Palomo</p>
+                    <p>Phone Number: +63 927 472 6791</p>
+                    <p>Pickup Location: Ateneo de Manila University</p>
+                    <span>Drop-off Location: </span><p style="display: inline;" id="drop-off">Antipolo City</p>
+                </div>
+                <form id="modal-form">
+                    <button type="button" class="button-booking" style="background-color: red;" onclick="closeModalBook()">Reject</button>
+                    <button type="submit" id="accept-book" class="button-booking" onclick="closeModalBook()">Accept</button>
+                </form>
+            </div>
+        </div>   
+
+        <div class="formBlock" style="display: none;">
+            <form id="form">
+            </form>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+        <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=S8d7L47mdyAG5nHG09dUnSPJjreUVPeC"></script>
+        <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=S8d7L47mdyAG5nHG09dUnSPJjreUVPeC"></script>
+        <script src="driver.js"></script>
+        <script>
+            let scheduleData = [];
+            function openModal() {
+                document.getElementById("schedule-modal").style.display = "block";
+            }
+
+            function closeModal() {
+                document.getElementById("schedule-modal").style.display = "none";
+            }
+
+            function openModalBook() {
+                document.getElementById("riderBookingModal").style.display = "block";
+            }
+
+            function closeModalBook() {
+                document.getElementById("riderBookingModal").style.display = "none";
+            }
+
+            function addInputFields() {
+                const scheduleContainer = document.getElementById("schedule-container");
+                const scheduleForm = document.createElement("form");
+                scheduleForm.id = "schedule-form";
+                const getScheduleForm = document.getElementById("schedule-form");
+
+                const dayDropdown = document.createElement('select');
+                dayDropdown.name = 'day';
+                dayDropdown.id = 'day-dropdown';
+                dayDropdown.className = "dropdown";
+                const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                for (const day of days) {
+                    const option = document.createElement('option');
+                    option.value = day;
+                    option.textContent = day;
+                    dayDropdown.appendChild(option);
+                }
+
+                const startTimeDropdown = document.createElement('select');
+                startTimeDropdown.name = 'start-time';
+                startTimeDropdown.id = 'start-time-dropdown';
+                startTimeDropdown.className = "dropdown";
+
+                const times = []
+
+                for (let hour = 8; hour <= 21; hour++) {
+                    for (let minute = 0; minute < 60; minute += 30) {
+                        if (minute == 0) {
+                            var time = `${hour}:00`;
+                        } else {
+                            var time = `${hour}:${minute}`;
+                        }
+                        times.push(time)
+                    }
+                }
+
+                for (const time of times) {
+                    const option = document.createElement('option');
+                    option.value = time;
+                    option.textContent = time;
+                    startTimeDropdown.appendChild(option);
+                }
+
+
+                scheduleForm.appendChild(dayDropdown);
+                scheduleForm.appendChild(startTimeDropdown);
+                scheduleContainer.appendChild(scheduleForm);
+
+                const scheduleFormElements = scheduleForm.querySelectorAll('*');
+
+                for (const element of scheduleFormElements) {
+                    element.style.marginRight = '10px';
+                }
+            }
+
+            function saveSchedule() {
+                console.log("Schedule Data:", scheduleData);
+                closeModal();
+            }
+
+            var modal = document.getElementById('riderBookingModal');
+
+            function showRiderBookingModal() {
+            modal.show();
+            }
+        </script>
+    </body>
+</html>
