@@ -6,6 +6,25 @@
     <title>Car-eneo Sign Up</title>
     <link rel="stylesheet" href="registration.css">
 </head>
+
+<style>
+    .card {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 10px;
+        width: 200px;
+        float: left;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    .small-image {
+        max-width: 50%;
+        height: auto;
+    }
+
+</style>
 <body>
     <header>
         <nav>
@@ -15,122 +34,178 @@
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Pricing</a></li>
                 <li><a href="#">Contact</a></li>
+                <li><a href="#" id="login" onclick="showLoginForm()">Log In</a></li>
             </ul>
         </nav>
     </header>
 
     
-        
+<!--         
     <div id="signup-form" >
     <div class="container">
         <h1><span class="car-eneo-text"> Car-eneo</span> Sign Up</h1>
         <form>
             <div class="form-group">
-                <label for="city">ID Number</label>
-                <input type="text" id="idnumber" required>
+                <label for="city">ID Number                 <input type="text" id="idnumber"></label>
             </div>
             <div class="form-group">
-                <label for="firstname">First name</label>
-                <input type="text" id="firstname" required>
+                <label>First name                 <input type="text" id="firstname"></label>
             </div>
             <div class="form-group">
-                <label for="lastname">Last name</label>
-                <input type="text" id="lastname">
+                <label>Last name                 <input type="text" id="lastname"></label>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password">
+                <label>Password                 <input type="password" id="password"></label>
             </div>
-            <div class="form-group">
-                <label for="mobilenumber">Mobile number*</label>
-                <input type="text" id="mobilenumber" required>
-            </div>
-            <div class="form-group">
-                <label for="referralcode">Referral code</label>
-                <input type="text" id="referralcode">
-            </div>
-            <button type="button" onclick="signup()">Sign Up</button>
+            <button type="submit" onclick="signup()">Sign Up</button>
         </form>
         <div class="links">
-            <a href="#" onclick="showLoginForm()">Have an account? Login here</a>
+            <a href="login" onclick="showLoginForm()">Have an account? Login here</a>
             <a href="#">Connect with Google</a>
             <a href="#">Connect with Apple</a>
         </div>
     </div>
+    </div> -->
+
+    <div id="cardContainer" style="display: none;"></div>
+
+    <div class="container">
+        <h2>Be a <span style="color: #007bff;;">Car-enean!</span></h2>
+        <form id="dataForm">
+            <label for="itemName">Ateneo ID Number</label>
+            <input type="text" id="itemName" name="itemName" required>
+            <br>
+            <br>
+            <label for="itemDescription">Complete Name</label>
+            <input type="text" id="itemDescription" name="itemDescription" required>
+            <br>
+            <br>
+            <label for="image">Password</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <br>
+            <label for="image">Ateneo ID</label>
+            <input type="file" id="image1" name="image1" accept="image/*" required>
+            <br>
+            <br>
+            <label for="image">Selfie</label>
+            <input type="file" id="image2" name="image2" accept="image/*" required>
+            <br>
+            <br>
+            <button type="button" onclick="addItem()">Register</button>
+        </form>
+        <div class="links">
+            <a href="login" onclick="showLoginForm()">Have an account? Login here</a>
+            <a href="#">Connect with Google</a>
+            <a href="#">Connect with Apple</a>
+        </div>
     </div>
-
-
-    <div id="login-form" style="display: none;">
-        <div class="container">
-            <h1>Car-eneo Login</h1>
-            <form>
-                <div class="form-group">
-                    <label for="city">ID Number</label>
-                    <input type="text" id="idnumber1" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password1">
-                </div>
-
-                <button type="button" onclick="login()">Sign In</button>
-            </form>
-            <div class="links">
-                <a href="#">Have an account? Login here</a>
-                <a href="#">Connect with Google</a>
-                <a href="#">Connect with Apple</a>
-            </div>
-        </div>
-        </div>
-
-    <script>
-        // Mock user data for demonstration (replace with real user data)
-        const users = [
-        { idnumber: "000", password: "password1" },
-        { idnumber: "001", password: "password2" }
-    ];
-
-     // Function to simulate user sign-up (front-end only)
-     function signup() {
-        const idnumber = document.getElementById("idnumber").value;
-        const password = document.getElementById("password").value;
     
-        if (!idnumber || !password) {
-            alert("Please fill in all required fields.");
-        } else if (users.some(user => user.idnumber === idnumber)) {
-            alert("Username already exists. Please choose another.");
-        } else {
-            users.push({ idnumber, password });
-            alert("Sign-up successful. You can now log in.");
-            showLoginForm();
-            clearFormFields();
-        }
-    }
 
-    function showLoginForm() {
-        document.getElementById("signup-form").style.display = "none";
-        document.getElementById("login-form").style.display = "block";
-        clearFormFields();
-    }
 
-    function login() {
-        const idnumber = document.getElementById("idnumber1").value;
-        const password = document.getElementById("password1").value;
-    
-        if (!idnumber || !password) {
-            alert("Please fill in all required fields.");
-        } else {
-            const user = users.find(u => u.idnumber === idnumber && u.password === password);
-    
-            if (user) {
-                alert("Login successful. Redirecting to your profile...");
-                // You can redirect to the user's profile page here
-            } else {
-                alert("Invalid username or password");
-            }
-        }
-    }
-    </script>
+    <button type="button" onclick="clearDataList()">Clear Data</button>
+
+        <script src="index.js"></script>
 </body>
+
+<script>
+     // Array to store the data
+     let dataList = JSON.parse(localStorage.getItem('dataList')) || [];
+    
+     // Function to add item to the array and update the HTML
+     function addItem() {
+         // Get form values
+         const itemName = document.getElementById('itemName').value;
+         const itemDescription = document.getElementById('itemDescription').value;
+         const imageInput1 = document.getElementById('image1');
+         const imageInput2 = document.getElementById('image2');
+         
+         // Check if images are selected
+         if (imageInput1.files.length === 0 || imageInput2.files.length === 0) {
+             alert('Please select both images');
+             return;
+         }
+ 
+         const imageFile1 = imageInput1.files[0];
+         const imageFile2 = imageInput2.files[0];
+ 
+         // Convert images to base64
+         const reader1 = new FileReader();
+         const reader2 = new FileReader();
+ 
+         reader1.onload = function (e) {
+             const imageUrl1 = e.target.result;
+ 
+             reader2.onload = function (e) {
+                 const imageUrl2 = e.target.result;
+ 
+                 // Add item to the array
+                 dataList.push({ name: itemName, description: itemDescription, image1: imageUrl1, image2: imageUrl2 });
+ 
+                 // Update HTML
+                 updateHTML();
+ 
+                 // Save data to local storage
+                 localStorage.setItem('dataList', JSON.stringify(dataList));
+
+                 window.location.href = 'status.html';
+             };
+ 
+             reader2.readAsDataURL(imageFile2);
+         };
+ 
+         reader1.readAsDataURL(imageFile1);
+ 
+         // Clear form fields
+         document.getElementById('itemName').value = '';
+         document.getElementById('itemDescription').value = '';
+         document.getElementById('image1').value = ''; // Clear file input
+         document.getElementById('image2').value = ''; // Clear file input
+     }
+ 
+     // Function to update HTML with array data
+     function updateHTML() {
+         const cardContainer = document.getElementById('cardContainer');
+         cardContainer.innerHTML = ''; // Clear existing content
+ 
+         // Loop through array and create a card for each item
+         dataList.forEach(item => {
+             const card = document.createElement('div');
+             card.className = 'card';
+ 
+             // Display first image if available
+             if (item.image1) {
+                 const img1 = document.createElement('img');
+                 img1.src = item.image1;
+                 card.appendChild(img1);
+             }
+ 
+             // Display second image if available, smaller size
+             if (item.image2) {
+                 const img2 = document.createElement('img');
+                 img2.src = item.image2;
+                 img2.className = 'small-image';
+                 card.appendChild(img2);
+             }
+ 
+             card.innerHTML += `<strong>${item.name}</strong><br>${item.description}`;
+             cardContainer.appendChild(card);
+         });
+     }
+
+     function clearDataList() {
+        // Remove the 'dataList' item from localStorage
+        localStorage.removeItem('dataList');
+        
+        // Clear the dataList array
+        dataList = [];
+    
+        // Update HTML to reflect the changes
+        updateHTML();
+    }
+    
+
+     // Initial update on page load
+     updateHTML();
+</script>
 </html>

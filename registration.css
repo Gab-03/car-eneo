@@ -1,28 +1,27 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: url('assets/car.jpg'); /* Replace with your image file path */
+    background-image: url('assets/car.jpg');
+    /* Replace with your image file path */
     background-size: cover; /* Adjust this property as needed */
     background-position: center center; /* Adjust this property as needed */
 }
 
-
 header {
     background-color: #fff;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     padding: 10px 0;
+    font-size: 20px;
 }
 
-header {
-    background-color: #fff;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px 0;
-}
-
-header .logo a{
-    font-size: 24px;
+header .logo a {
+    font-size: 34px;
     font-weight: bold;
-    color: #3498db; /* Blue color for the logo */
+    color: #007DFE; /* Blue color for the logo */
     margin-left: 20px;
+}
+
+.car-eneo-text {
+    color: #007DFE;
 }
 
 header nav {
@@ -46,6 +45,17 @@ header a {
     color: #333; /* Dark text color for navigation links */
 }
 
+#login{
+    border: 2px solid #007DFE;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 5px 20px 5px 20px ;
+}
+
+#login:hover{
+    color: #f9f9f9; /* New color on hover */
+    background-color: #007DFE; 
+}
 .container {
     width: 400px;
     padding: 30px;
@@ -114,4 +124,54 @@ a:hover {
 
 .car-eneo-text {
     color: #3498DA;
+}
+
+/* Style the CTA section at the end of the page with a blue accent for the CTA button */
+.cta {
+    text-align: center;
+    padding: 100px 0;
+    background-color: rgb(240, 240, 240);
+}
+
+
+.cta1 {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.cta1-p{
+    margin-top: 2.25rem;
+    text-align: center;
+    font-size: 26px;
+    width: 24rem;
+    color: #f1f1f1; 
+}
+
+.cta1-p p{
+    font-size: 26px;
+}
+.cta1 h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333; /* Dark text color for the CTA heading */
+}
+
+.cta h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333; /* Dark text color for the CTA heading */
+}
+
+.cta p, .cta1 p{
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #666; /* Slightly darker text color for the CTA paragraph */
+}
+
+/* Style the footer with a blue background for contrast and white text */
+footer {
+margin-top: auto; /* Push the footer to the bottom */
+    padding: 10px;
+    background-color: #f0f0f0;
+    text-align: center;
 }
